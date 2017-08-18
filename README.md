@@ -3,6 +3,8 @@ Signs an http(s) request options object with AWS Signature Version 4 headers and
 
 # Sample Usage
 Use the `signAWS` function provided by the module to add the appropriate cryptographically secure headers to an http or https request options object.  This function accepts an options object as the first parameter and a callback as the second parameter. 
+`checkout repo`
+`npm install`
 
 ```
 let signAWS = require('./aws-sigv4-ec2metadata/index.js');
