@@ -1,0 +1,28 @@
+{
+  "name": "aws-sigv4-ec2meta",
+  "version": "1.0.0",
+  "description": "Signs an http(s) request options object with AWS Signature Version 4 headers and returns them",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/springbox/aws-sigv4-ec2meta.git"
+  },
+  "keywords": [
+    "aws4",
+    "ec2metadata",
+    "instance",
+    "profile"
+  ],
+  "author": "Ben Balentine",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/springbox/aws-sigv4-ec2meta/issues"
+  },
+  "homepage": "https://github.com/springbox/aws-sigv4-ec2meta#readme",
+  "dependencies": {
+    "aws4": "^1.6.0"
+  }
+}
