@@ -1,0 +1,14 @@
+[aws]
+access_key=****
+secret_key=****
+region=us-west-2
+
+[metadata]
+host=169.254.169.254
+port=45000
+token_duration=3500
+
+[profile:default]
+access_key=****
+secret_key=****
+region=us-west-2
