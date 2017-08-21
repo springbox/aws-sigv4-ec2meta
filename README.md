@@ -36,7 +36,7 @@ To test locally, use the [aws-mock-metadata](https://github.com/dump247/aws-mock
 
 1. Boto dependency
     1. `sudo easy_install pip`
-    1. `pip install boto`    
+    1. `sudo pip install boto`    
 1. Clone https://github.com/dump247/aws-mock-metadata.git
 1. Configure aws-mock-metadata
     1. Create a `server.conf` file in the root of the aws-mock-metadata folder (see server.conf.sample for an example of this)
