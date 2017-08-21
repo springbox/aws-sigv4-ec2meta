@@ -2,7 +2,7 @@ let signAWS = require('../index');
 let https = require('https');
 
 let deleteOpts = {
-    host: 'gu0rkom2gb.execute-api.us-west-2.amazonaws.com',
+    host: 'exampleapi.execute-api.us-west-2.amazonaws.com',
     path: '/api/configs/1',
     method: 'DELETE'
 };

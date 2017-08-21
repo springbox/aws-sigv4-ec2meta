@@ -3,6 +3,8 @@ Signs an http(s) request options object with AWS Signature Version 4 headers and
 
 # Sample Usage
 Use the `signAWS` function provided by the module to add the appropriate cryptographically secure headers to an http or https request options object.  This function accepts an options object as the first parameter and a callback as the second parameter. 
+`checkout repo`
+`npm install`
 
 ```
 let signAWS = require('./aws-sigv4-ec2metadata/index.js');
@@ -34,7 +36,7 @@ To test locally, use the [aws-mock-metadata](https://github.com/dump247/aws-mock
 
 1. Boto dependency
     1. `sudo easy_install pip`
-    1. `pip install boto`    
+    1. `sudo pip install boto`    
 1. Clone https://github.com/dump247/aws-mock-metadata.git
 1. Configure aws-mock-metadata
     1. Create a `server.conf` file in the root of the aws-mock-metadata folder (see server.conf.sample for an example of this)
