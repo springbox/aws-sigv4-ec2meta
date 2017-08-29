@@ -12,7 +12,7 @@ const bodyData = JSON.stringify({
 });
 
 let opts = {
-    host: 'gu0rkom2gb.execute-api.us-west-2.amazonaws.com',
+    host: 'exampleapi.execute-api.us-west-2.amazonaws.com',
     path: '/api/configs/1',
     method: 'POST',
     body: bodyData,
