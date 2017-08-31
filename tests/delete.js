@@ -1,19 +1,19 @@
-let signAWS = require('../index');
-let https = require('https');
+var signAWS = require('../index');
+var https = require('https');
 
-let deleteOpts = {
+var deleteOpts = {
     host: 'exampleapi.execute-api.us-west-2.amazonaws.com',
     path: '/api/configs/1',
     method: 'DELETE'
 };
 
-signAWS(deleteOpts, (signedOpts) => {
-    let req = https.request(signedOpts, (res) => {
-        let body = [];
-        res.on('data', (d) => {
+signAWS(deleteOpts, function(signedOpts) {
+    var req = https.request(signedOpts, function(res) {
+        var body = [];
+        res.on('data', function(d) {
             body.push(d);
         });
-        res.on('end', () => console.log(body.join('')));
+        res.on('end', function() {console.log(body.join(''))});
     });
     req.on('error', console.error);
     req.end();

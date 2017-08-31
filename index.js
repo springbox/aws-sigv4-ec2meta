@@ -1,12 +1,12 @@
-const aws4 = require('aws4');
-const http = require('http');
+var aws4 = require('aws4');
+var http = require('http');
 
-    const requestPromise = function(resolve, reject) {
-        return (response) => {
-            let body = [];
+    var requestPromise = function(resolve, reject) {
+        return function(response) {
+            var body = [];
 
-            response.on('data', c => body.push(c));
-            response.on('end', () => {
+            response.on('data', function(c) {body.push(c)});
+            response.on('end', function() {
                 body = body.join('');
                 if (response.statusCode < 200 || response.statusCode > 299) {
                     reject(new Error('Failed to load page, status code: ' + response.statusCode + " with body " + body));
@@ -18,23 +18,23 @@ const http = require('http');
     };
 
 const signAWSRequests = function(requestOpts, callback) {
-    let ec2MetadataOpts = {
+    var ec2MetadataOpts = {
         host: '169.254.169.254',
         path: '/latest/meta-data/iam/security-credentials/'
     };
 
-    const temporaryCredentials = new Promise((resolve, reject) => {
+    var temporaryCredentials = new Promise(function(resolve, reject) {
         http.get(ec2MetadataOpts, requestPromise(resolve, reject));
     });
-    temporaryCredentials.then((data) => {
+    temporaryCredentials.then(function(data) {
         ec2MetadataOpts.path = ec2MetadataOpts.path + data;
-        const ec2Creds = new Promise((resolve, reject) => {
+        var ec2Creds = new Promise(function(resolve, reject) {
             console.log('attempting to get creds with opts: ', ec2MetadataOpts);
             http.get(ec2MetadataOpts, requestPromise(resolve, reject));
         });
-        ec2Creds.then((credsJsonString) => {
+        ec2Creds.then(function(credsJsonString) {
             try {
-                const credentialsJSON = JSON.parse(credsJsonString);
+                var credentialsJSON = JSON.parse(credsJsonString);
 
                 requestOpts = aws4.sign(requestOpts, {accessKeyId: credentialsJSON.AccessKeyId, secretAccessKey: credentialsJSON.SecretAccessKey, sessionToken: credentialsJSON.Token});
                 callback(requestOpts);

@@ -1,7 +1,7 @@
-let signAWS = require('../index');
-let https = require('https');
+var signAWS = require('../index');
+var https = require('https');
 
-const bodyData = JSON.stringify({
+var bodyData = JSON.stringify({
     module: {
         tags: [1,2,3,4,5]
     },
@@ -11,7 +11,7 @@ const bodyData = JSON.stringify({
     }
 });
 
-let opts = {
+var opts = {
     host: 'exampleapi.execute-api.us-west-2.amazonaws.com',
     path: '/api/configs/1',
     method: 'POST',
@@ -21,14 +21,14 @@ let opts = {
     }
 };
 
-signAWS(opts, (signedOpts) => {
+signAWS(opts, function(signedOpts) {
     console.log('pushing with signed opts: ', signedOpts);
-    let req = https.request(signedOpts, (res) => {
-        let body = [];
-        res.on('data', (d) => {
+    var req = https.request(signedOpts, function(res) {
+        var body = [];
+        res.on('data', function(d) {
             body.push(d);
         });
-        res.on('end', () => console.log(body.join('')));
+        res.on('end', function() {console.log(body.join(''))});
     });
     req.write(bodyData);
     req.on('error', console.error);
