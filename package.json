@@ -1,6 +1,6 @@
 {
   "name": "aws-sigv4-ec2meta",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Signs an http(s) request options object with AWS Signature Version 4 headers and returns them",
   "main": "index.js",
   "scripts": {
