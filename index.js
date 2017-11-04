@@ -29,7 +29,6 @@ const signAWSRequests = function(requestOpts, callback) {
     temporaryCredentials.then(function(data) {
         ec2MetadataOpts.path = ec2MetadataOpts.path + data;
         var ec2Creds = new Promise(function(resolve, reject) {
-            console.log('attempting to get creds with opts: ', ec2MetadataOpts);
             http.get(ec2MetadataOpts, requestPromise(resolve, reject));
         });
         ec2Creds.then(function(credsJsonString) {
